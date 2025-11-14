@@ -1,7 +1,9 @@
 <?php
-
-
+// routes/api.php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QrCodeController;
+
+
 use App\Http\Controllers\AuthController;
 // 📢 Ensure this line is present and correct
 use App\Http\Controllers\CategoryController; 
@@ -23,4 +25,6 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Menu Item Management CRUD Routes
     Route::apiResource('menu-items', MenuItemController::class); 
+    // Other authenticated routes...
+    Route::get('/qr-code', [QrCodeController::class, 'generate']);
 });
